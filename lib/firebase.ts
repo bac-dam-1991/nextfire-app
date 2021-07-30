@@ -12,13 +12,10 @@ var firebaseConfig = {
 	appId: "1:167668142121:web:f080704c4300e1dc440c38",
 };
 
-export const initialiseFirebase = () => {
+if (!firebase.apps.length) {
 	firebase.initializeApp(firebaseConfig);
-	const auth = firebase.auth();
-	const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-	const firestore = firebase.firestore();
-	const storage = firebase.storage();
-	return { auth, googleAuthProvider, firestore, storage };
-};
-
-export default firebase;
+}
+export const auth = firebase.auth();
+export const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+export const firestore = firebase.firestore();
+export const storage = firebase.storage();
